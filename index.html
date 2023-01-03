@@ -23,15 +23,59 @@
   </div>
   <div id="clock"></div>
   <script>
-    function updateClock() {
-      var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var seconds = now.getSeconds();
-      var clock = document.getElementById('clock');
-      clock.innerHTML = hours + ':' + minutes + ':' + seconds;
-    }
-    setInterval(updateClock, 1000);
+   function updateClock() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  var clock = document.getElementById('clock');
+
+  // Convert hours to word form
+  switch (hours) {
+    case 0:
+      hours = 'midnight';
+      break;
+    case 12:
+      hours = 'noon';
+      break;
+    case (hours > 12):
+      hours = (hours - 12) + 'pm';
+      break;
+    default:
+      hours = hours + 'am';
+      break;
+  }
+
+  // Convert minutes to word form
+  switch (minutes) {
+    case 0:
+      minutes = 'o\'clock';
+      break;
+    case (minutes < 10):
+      minutes = 'oh ' + minutes;
+      break;
+    case (minutes < 20):
+      minutes = 'quarter past ' + hours;
+      break;
+    case (minutes < 30):
+      minutes = 'twenty past ' + hours;
+      break;
+    case (minutes < 40):
+      minutes = 'half past ' + hours;
+      break;
+    case (minutes < 50):
+      minutes = 'twenty to ' + (hours + 1);
+      break;
+    default:
+      minutes = 'quarter to ' + (hours + 1);
+      break;
+  }
+
+  // Set the clock text
+  clock.innerHTML = minutes;
+}
+
+setInterval(updateClock, 1000);
   </script>
 </body>
 </html>
