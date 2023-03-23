@@ -1,6 +1,9 @@
-new Vue({
-  el: "#app",
-  data: {
-    message: "Welcome to my GitHub Page!",
+const app = Vue.createApp({
+  data() {
+    return {
+      message: "Welcome to my GitHub Page!",
+    };
   },
 });
+
+app.mount("#app");
