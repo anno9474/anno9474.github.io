@@ -2,80 +2,11 @@
 <html>
 <head>
   <title>About Me</title>
-  <link href='https://fonts.googleapis.com/css?family=ClockTwo' rel='stylesheet'>
-  <style>
-     body {
-  background-image: linear-gradient(-45deg, #006400, #00FFFF);
-  background-size: 60px 60px;
-  background-repeat: repeat-x;
-}
-    #clock {
-  font-family: 'ClockTwo', sans-serif;
-  font-size: 36px;
-  text-align: center;
-}
-  </style>
+  <script src="https://unpkg.com/vue@3.0.0"></script>
 </head>
 <body>
-  <div id="about-me">
-    <h1>About Me</h1>
-    <p>I am a software developer with a passion for building web applications. I have experience in a variety of programming languages and frameworks, and I am always looking to learn new technologies. In my free time, I enjoy playing video games, reading books, and going for walks in the park.</p>
+  <div id="app">
+    <!-- Your content here -->
   </div>
-  <div id="clock"></div>
-  <script>
-   function updateClock() {
-  var now = new Date();
-  var hours = now.getHours();
-  var minutes = now.getMinutes();
-  var seconds = now.getSeconds();
-  var clock = document.getElementById('clock');
-
-  // Convert hours to word form
-  switch (hours) {
-    case 0:
-      hours = 'midnight';
-      break;
-    case 12:
-      hours = 'noon';
-      break;
-    case (hours > 12):
-      hours = (hours - 12) + 'pm';
-      break;
-    default:
-      hours = hours + 'am';
-      break;
-  }
-
-  // Convert minutes to word form
-  switch (minutes) {
-    case 0:
-      minutes = 'o\'clock';
-      break;
-    case (minutes < 10):
-      minutes = 'oh ' + minutes;
-      break;
-    case (minutes < 20):
-      minutes = 'quarter past ' + hours;
-      break;
-    case (minutes < 30):
-      minutes = 'twenty past ' + hours;
-      break;
-    case (minutes < 40):
-      minutes = 'half past ' + hours;
-      break;
-    case (minutes < 50):
-      minutes = 'twenty to ' + (hours + 1);
-      break;
-    default:
-      minutes = 'quarter to ' + (hours + 1);
-      break;
-  }
-
-  // Set the clock text
-  clock.innerHTML = minutes;
-}
-
-setInterval(updateClock, 1000);
-  </script>
 </body>
 </html>
